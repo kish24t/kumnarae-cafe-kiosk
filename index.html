@@ -39,6 +39,12 @@
       border-radius: 10px;
       border: 1px solid #b2ebf2;
     }
+    .summary small {
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      color: #666;
+    }
   </style>
 </head>
 <body>
@@ -65,16 +71,15 @@
         const koreanTemp = temp === 'HOT' ? '따뜻한' : '차가운';
         const englishTemp = temp === 'HOT' ? 'HOT' : 'ICE';
         app.innerHTML += `<div class="card">
-          <p>1. ${koreanTemp} ${menu} 주문받았습니다.</p>
-          <p>${englishTemp} ${menu} order received.</p>
-          <p>2. 앞에 있는 친구와 하이파이브 해주세요!<br/>2. Please high-five the friend in front of you!</p>
+          <p>1. ${koreanTemp} ${menu} 주문받았습니다.<br/>${englishTemp} ${menu} order received.</p>
+          <p>2. 앞에 있는 친구와 하이파이브 해주세요!<br/>Please high-five the friend in front of you!</p>
           <button class="pink" onclick="goNext()">다음으로 (Next)</button>
         </div>`;
-        app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${koreanTemp} ${menu} / ${englishTemp} ${menu}</div>`;
+        app.innerHTML += `<div class="summary">주문 내역: ${koreanTemp} ${menu}<small>${englishTemp} ${menu}</small></div>`;
       } else if (step === 3) {
         app.innerHTML += `<div class="card">
-          <p>3. 주문서에 선생님 성함을 적어주세요.<br/>3. Please write the teacher's name on the order sheet.</p>
-          <p>4. 주문이 완료되었습니다. 잠시만 앉아서 기다려 주세요.<br/>4. Order complete. Please have a seat and wait a moment.</p>
+          <p>3. 주문서에 선생님 성함을 적어주세요.<br/>Please write the teacher's name on the order sheet.</p>
+          <p>4. 주문이 완료되었습니다. 잠시만 앉아서 기다려 주세요.<br/>Order complete. Please have a seat and wait a moment.</p>
           <button class="gray" onclick="restart()">처음으로 (Start Over)</button>
         </div>`;
       }
