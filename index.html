@@ -58,8 +58,8 @@
         app.innerHTML += `<button class="yellow" onclick="chooseMenu('Vanilla Latte')">🍦 바닐라라떼 / Vanilla Latte</button>`;
       } else if (step === 1) {
         app.innerHTML += `<h2>${menu} - 따뜻하게 드릴까요, 차갑게 드릴까요?</h2>`;
-        app.innerHTML += `<button class="red" onclick="chooseTemp('HOT')">🔥 HOT</button>`;
-        app.innerHTML += `<button class="cyan" onclick="chooseTemp('ICE')">❄️ ICE</button>`;
+        app.innerHTML += `<button class="red" onclick="chooseTemp('HOT')">🔥 따뜻한 / HOT</button>`;
+        app.innerHTML += `<button class="cyan" onclick="chooseTemp('ICE')">❄️ 차가운 / ICE</button>`;
       } else if (step === 2) {
         const koreanTemp = temp === 'HOT' ? '따뜻한' : '아이스';
         app.innerHTML += `<div class="card">
