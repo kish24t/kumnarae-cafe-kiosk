@@ -64,12 +64,16 @@
         const koreanTemp = temp === 'HOT' ? '따뜻한' : '아이스';
         app.innerHTML += `<div class="card">
           <p>1. ${koreanTemp} ${menu} 주문받았습니다.<br/>1. ${temp} ${menu} order received.</p>
-          <p>2. 선생님 성함을 알려주세요.<br/>2. May I have your name, please?</p>
-          <p>3. 잠시만 앉아서 기다려 주세요.<br/>3. Please have a seat and wait a moment.</p>
-          <p>🙌 주문이 완료되었습니다. 앞에 있는 친구와 하이파이브 해주세요!<br/>🙌 Order complete! Please high-five the friend in front of you!</p>
-          <button class="gray" onclick="restart()">처음으로 (Start Over)</button>
+          <p>2. 앞에 있는 친구와 하이파이브 해주세요!<br/>2. Please high-five the friend in front of you!</p>
+          <button class="gray" onclick="goNext()">다음으로 (Next)</button>
         </div>`;
         app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${menu} (${temp})</div>`;
+      } else if (step === 3) {
+        app.innerHTML += `<div class="card">
+          <p>3. 주문서에 선생님 성함을 적어주세요.<br/>3. Please write the teacher's name on the order sheet.</p>
+          <p>4. 주문이 완료되었습니다. 잠시만 앉아서 기다려 주세요.<br/>4. Order complete. Please have a seat and wait a moment.</p>
+          <button class="gray" onclick="restart()">처음으로 (Start Over)</button>
+        </div>`;
       }
     }
 
@@ -82,6 +86,11 @@
     function chooseTemp(selectedTemp) {
       temp = selectedTemp;
       step = 2;
+      render();
+    }
+
+    function goNext() {
+      step = 3;
       render();
     }
 
