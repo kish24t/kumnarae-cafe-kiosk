@@ -60,9 +60,9 @@
       app.innerHTML = "";
       if (step === 0) {
         app.innerHTML += `<h2>음료를 선택해주세요 (Choose a drink)</h2>`;
-        app.innerHTML += `<button class="blue" onclick="chooseMenu('Americano')">☕ 아메리카노 / Americano</button>`;
-        app.innerHTML += `<button class="green" onclick="chooseMenu('Cafe Latte')">🥤 카페라떼 / Cafe Latte</button>`;
-        app.innerHTML += `<button class="yellow" onclick="chooseMenu('Vanilla Latte')">🍦 바닐라라떼 / Vanilla Latte</button>`;
+        app.innerHTML += `<button class="blue" onclick="chooseMenu('아메리카노 / Americano')">☕ 아메리카노 / Americano</button>`;
+        app.innerHTML += `<button class="green" onclick="chooseMenu('카페라떼 / Cafe Latte')">🥤 카페라떼 / Cafe Latte</button>`;
+        app.innerHTML += `<button class="yellow" onclick="chooseMenu('바닐라라떼 / Vanilla Latte')">🍦 바닐라라떼 / Vanilla Latte</button>`;
       } else if (step === 1) {
         app.innerHTML += `<h2>${menu} - 따뜻하게 드릴까요, 차갑게 드릴까요?</h2>`;
         app.innerHTML += `<button class="red" onclick="chooseTemp('HOT')">🔥 따뜻한 / HOT</button>`;
@@ -70,12 +70,13 @@
       } else if (step === 2) {
         const koreanTemp = temp === 'HOT' ? '따뜻한' : '차가운';
         const englishTemp = temp === 'HOT' ? 'HOT' : 'ICE';
+        const [korMenu, engMenu] = menu.split(" / ");
         app.innerHTML += `<div class="card">
-          <p>1. ${koreanTemp} ${menu} 주문받았습니다.<br/>${englishTemp} ${menu} order received.</p>
+          <p>1. ${koreanTemp} ${korMenu} 주문받았습니다.<br/>${englishTemp} ${engMenu} order received.</p>
           <p>2. 앞에 있는 친구와 하이파이브 해주세요!<br/>Please high-five the friend in front of you!</p>
           <button class="pink" onclick="goNext()">다음으로 (Next)</button>
         </div>`;
-        app.innerHTML += `<div class="summary">주문 내역: ${koreanTemp} ${menu}<small>${englishTemp} ${menu}</small></div>`;
+        app.innerHTML += `<div class="summary">주문 내역: ${koreanTemp} ${korMenu}<small>${englishTemp} ${engMenu}</small></div>`;
       } else if (step === 3) {
         app.innerHTML += `<div class="card">
           <p>3. 주문서에 선생님 성함을 적어주세요.<br/>Please write the teacher's name on the order sheet.</p>
