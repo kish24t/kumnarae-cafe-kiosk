@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>꿈나래반 모의카페 주문 키오스크</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 400px; margin: auto; }
+    h1, h2 { text-align: center; }
+    button { display: block; width: 100%; padding: 12px; margin: 8px 0; font-size: 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-top: 20px; }
+    .card p { margin: 12px 0; line-height: 1.4; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+  <h1>꿈나래반 모의카페 주문</h1>
+  <div id="app"></div>
+
+  <script>
+    const app = document.getElementById("app");
+    let step = 0;
+    let menu = "", temp = "";
+
+    function render() {
+      app.innerHTML = "";
+      if (step === 0) {
+        const title = document.createElement("h2");
+        title.textContent = "음료를 선택해주세요 (Choose a drink)";
+        app.appendChild(title);
+        ["아메리카노 Americano", "카페라떼 Cafe Latte", "바닐라라떼 Vanilla Latte"].forEach(item => {
+          const btn = document.createElement("button");
+          btn.textContent = item;
+          btn.onclick = () => {
+            menu = item;
+            step = 1;
+            render();
+          };
+          app.appendChild(btn);
+        });
+      } else if (step === 1) {
+        const title = document.createElement("h2");
+        title.textContent = `${menu} - 따뜻하게 드릴까요, 차갑게 드릴까요?`;
+        app.appendChild(title);
+        ["HOT", "ICE"].forEach(tempChoice => {
+          const btn = document.createElement("button");
+          btn.textContent = tempChoice;
+          btn.onclick = () => {
+            temp = tempChoice;
+            step = 2;
+            render();
+          };
+          app.appendChild(btn);
+        });
+      } else if (step === 2) {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <p>1. ${menu} ${temp} 주문받았습니다.<br/>1. ${menu} ${temp} order received.</p>
+          <p>2. 선생님 성함을 알려주세요.<br/>2. May I have your name, please?</p>
+          <p>3. 잠시만 앉아서 기다려 주세요.<br/>3. Please have a seat and wait a moment.</p>
+        `;
+        app.appendChild(card);
+
+        const againBtn = document.createElement("button");
+        againBtn.textContent = "처음으로 (Start Over)";
+        againBtn.onclick = () => {
+          step = 0;
+          menu = "";
+          temp = "";
+          render();
+        };
+        app.appendChild(againBtn);
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>
