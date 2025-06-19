@@ -12,13 +12,12 @@
       width: 100%;
       padding: 14px;
       margin: 10px 0;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       border: none;
       border-radius: 10px;
       color: #333;
       cursor: pointer;
       font-weight: bold;
-      line-height: 1.4;
     }
     .blue { background-color: #cfe8fc; }
     .green { background-color: #d1f5d3; }
@@ -54,9 +53,9 @@
       app.innerHTML = "";
       if (step === 0) {
         app.innerHTML += `<h2>음료를 선택해주세요 (Choose a drink)</h2>`;
-        app.innerHTML += `<button class="blue" onclick="chooseMenu('Americano')">☕ 아메리카노<br/><small>Americano</small></button>`;
-        app.innerHTML += `<button class="green" onclick="chooseMenu('Cafe Latte')">🥤 카페라떼<br/><small>Cafe Latte</small></button>`;
-        app.innerHTML += `<button class="yellow" onclick="chooseMenu('Vanilla Latte')">🍦 바닐라라떼<br/><small>Vanilla Latte</small></button>`;
+        app.innerHTML += `<button class="blue" onclick="chooseMenu('Americano')">☕ 아메리카노 / Americano</button>`;
+        app.innerHTML += `<button class="green" onclick="chooseMenu('Cafe Latte')">🥤 카페라떼 / Cafe Latte</button>`;
+        app.innerHTML += `<button class="yellow" onclick="chooseMenu('Vanilla Latte')">🍦 바닐라라떼 / Vanilla Latte</button>`;
       } else if (step === 1) {
         app.innerHTML += `<h2>${menu} - 따뜻하게 드릴까요, 차갑게 드릴까요?</h2>`;
         app.innerHTML += `<button class="red" onclick="chooseTemp('HOT')">🔥 HOT</button>`;
