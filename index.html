@@ -61,13 +61,14 @@
         app.innerHTML += `<button class="red" onclick="chooseTemp('HOT')">🔥 따뜻한 / HOT</button>`;
         app.innerHTML += `<button class="cyan" onclick="chooseTemp('ICE')">❄️ 차가운 / ICE</button>`;
       } else if (step === 2) {
-        const koreanTemp = temp === 'HOT' ? '따뜻한' : '아이스';
+        const koreanTemp = temp === 'HOT' ? '따뜻한' : '차가운';
+        const englishTemp = temp === 'HOT' ? 'HOT' : 'ICE';
         app.innerHTML += `<div class="card">
-          <p>1. ${koreanTemp} ${menu} 주문받았습니다.<br/>1. ${temp} ${menu} order received.</p>
+          <p>1. ${koreanTemp} ${menu} / ${englishTemp} ${menu} 주문받았습니다.<br/>1. ${koreanTemp} ${menu} / ${englishTemp} ${menu} order received.</p>
           <p>2. 앞에 있는 친구와 하이파이브 해주세요!<br/>2. Please high-five the friend in front of you!</p>
           <button class="gray" onclick="goNext()">다음으로 (Next)</button>
         </div>`;
-        app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${menu} (${temp})</div>`;
+        app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${menu} (${koreanTemp} / ${englishTemp})</div>`;
       } else if (step === 3) {
         app.innerHTML += `<div class="card">
           <p>3. 주문서에 선생님 성함을 적어주세요.<br/>3. Please write the teacher's name on the order sheet.</p>
