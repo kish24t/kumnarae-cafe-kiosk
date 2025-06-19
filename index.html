@@ -42,4 +42,34 @@
       } else if (step === 2) {
         app.innerHTML += `<div class="card">
           <p>1. ${menu} ${temp} 주문받았습니다.<br/>1. ${menu} ${temp} order received.</p>
-          <p>2. 선생님 성함을 알려주세요.<br/>2. May I have your name, please?
+          <p>2. 선생님 성함을 알려주세요.<br/>2. May I have your name, please?</p>
+          <p>3. 잠시만 앉아서 기다려 주세요.<br/>3. Please have a seat and wait a moment.</p>
+          <button class="gray" onclick="restart()">처음으로 (Start Over)</button>
+        </div>`;
+        app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${menu} (${temp})</div>`;
+      }
+    }
+
+    function chooseMenu(selectedMenu) {
+      menu = selectedMenu;
+      step = 1;
+      render();
+    }
+
+    function chooseTemp(selectedTemp) {
+      temp = selectedTemp;
+      step = 2;
+      render();
+    }
+
+    function restart() {
+      step = 0;
+      menu = "";
+      temp = "";
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>
