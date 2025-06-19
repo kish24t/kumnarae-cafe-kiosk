@@ -57,4 +57,30 @@
           <p>3. 잠시만 앉아서 기다려 주세요.<br/>3. Please have a seat and wait a moment.</p>
           <button class="gray" onclick="restart()">처음으로 (Start Over)</button>
         </div>`;
-        app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${menu} (${temp})<
+        app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${menu} (${temp})</div>`;
+      }
+    }
+
+    function chooseMenu(selectedMenu) {
+      menu = selectedMenu;
+      step = 1;
+      render();
+    }
+
+    function chooseTemp(selectedTemp) {
+      temp = selectedTemp;
+      step = 2;
+      render();
+    }
+
+    function restart() {
+      step = 0;
+      menu = "";
+      temp = "";
+      render();
+    }
+
+    render();
+  </script>
+</body>
+</html>
