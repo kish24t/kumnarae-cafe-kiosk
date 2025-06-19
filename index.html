@@ -24,7 +24,8 @@
     .yellow { background-color: #fff3cd; }
     .red { background-color: #f8d7da; }
     .cyan { background-color: #d1f0f7; }
-    .gray { background-color: #e2e3e5; }
+    .gray { background-color: #f9d6ec; }
+    .pink { background-color: #fcd6eb; }
     .card { border: 1px solid #ddd; border-radius: 10px; padding: 18px; margin-top: 20px; background-color: white; }
     .card p { margin: 14px 0; line-height: 1.6; font-size: 1.2rem; }
     .summary {
@@ -64,11 +65,12 @@
         const koreanTemp = temp === 'HOT' ? '따뜻한' : '차가운';
         const englishTemp = temp === 'HOT' ? 'HOT' : 'ICE';
         app.innerHTML += `<div class="card">
-          <p>1. ${koreanTemp} ${menu} / ${englishTemp} ${menu} 주문받았습니다.<br/>1. ${koreanTemp} ${menu} / ${englishTemp} ${menu} order received.</p>
+          <p>1. ${koreanTemp} ${menu} 주문받았습니다.</p>
+          <p>${englishTemp} ${menu} order received.</p>
           <p>2. 앞에 있는 친구와 하이파이브 해주세요!<br/>2. Please high-five the friend in front of you!</p>
-          <button class="gray" onclick="goNext()">다음으로 (Next)</button>
+          <button class="pink" onclick="goNext()">다음으로 (Next)</button>
         </div>`;
-        app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${menu} (${koreanTemp} / ${englishTemp})</div>`;
+        app.innerHTML += `<div class="summary"><strong>주문 내역:</strong> ${koreanTemp} ${menu} / ${englishTemp} ${menu}</div>`;
       } else if (step === 3) {
         app.innerHTML += `<div class="card">
           <p>3. 주문서에 선생님 성함을 적어주세요.<br/>3. Please write the teacher's name on the order sheet.</p>
