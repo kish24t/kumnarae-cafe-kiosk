@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>꿈나래반 모의카페 주문 키오스크</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 400px; margin: auto; }
+    h1, h2 { text-align: center; }
+    button { display: block; width: 100%; padding: 12px; margin: 8px 0; font-size: 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-top: 20px; }
+    .card p { margin: 12px 0; line-height: 1.4; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+  <h1>꿈나래반 모의카페 주문</h1>
+  <div id="app"></div>
+
+  <script>
+    const app = document.getElementById("app");
+    let step = 0;
+    let menu = "", temp = "";
+
+    function render() {
+      app.innerHTML = "";
+      if (step === 0) {
+        const title = document.createElement("h2");
+        title.textContent = "음료를 선택해주세요 (Choose a drink)";
+        app.appendChild(title);
