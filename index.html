@@ -50,7 +50,10 @@
 </head>
 <body>
   <h1>꿈나래반 모의카페 주문</h1>
-  <audio id="orderSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3a7b8c6c81.mp3?filename=correct-2-46134.mp3"></audio>
+  <audio id="orderSound" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3a7b8c6c81.mp3?filename=correct-2-46134.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
   <div id="app"></div>
 
   <script>
@@ -98,7 +101,7 @@
 
     function chooseTemp(selectedTemp) {
       temp = selectedTemp;
-      orderSound.play();
+      if (orderSound && orderSound.play) orderSound.play().catch(err => console.log("음향 실패:", err));
       step = 2;
       render();
     }
