@@ -81,6 +81,7 @@
           <button class="pink" onclick="goNext()">다음으로 (Next)</button>
         </div>`;
         app.innerHTML += `<div class="summary">주문 내역: ${koreanTemp} ${korMenu}<small>${englishTemp} ${engMenu}</small></div>`;
+        setTimeout(() => orderSound.play(), 300);
       } else if (step === 3) {
         app.innerHTML += `<div class="card">
           <p>3. 주문서에 선생님 성함을 적어주세요.<br/>Please write the teacher's name on the order sheet.</p>
@@ -99,7 +100,6 @@
     function chooseTemp(selectedTemp) {
       temp = selectedTemp;
       step = 2;
-      orderSound.play();
       render();
     }
 
