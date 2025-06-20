@@ -72,8 +72,8 @@
         app.innerHTML += `<button class="orange" onclick="chooseMenu('카라멜 마끼아또 / Caramel Macchiato')">🍯 카라멜 마끼아또 / Caramel Macchiato</button>`;
       } else if (step === 1) {
         app.innerHTML += `<h2>${menu} - 따뜻하게 드릴까요, 차갑게 드릴까요?</h2>`;
-        app.innerHTML += `<button class="red" onclick="chooseTemp('HOT')">🔥 따뜻한 / HOT</button>`;
-        app.innerHTML += `<button class="cyan" onclick="chooseTemp('ICE')">❄️ 차가운 / ICE</button>`;
+        app.innerHTML += `<button class="red" onclick="orderSound.play(); chooseTemp('HOT')">🔥 따뜻한 / HOT</button>`;
+        app.innerHTML += `<button class="cyan" onclick="orderSound.play(); chooseTemp('ICE')">❄️ 차가운 / ICE</button>`;
       } else if (step === 2) {
         const koreanTemp = temp === 'HOT' ? '따뜻한' : '차가운';
         const englishTemp = temp === 'HOT' ? 'HOT' : 'ICE';
@@ -101,7 +101,6 @@
 
     function chooseTemp(selectedTemp) {
       temp = selectedTemp;
-      if (orderSound && orderSound.play) orderSound.play().catch(err => console.log("음향 실패:", err));
       step = 2;
       render();
     }
