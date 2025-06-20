@@ -49,10 +49,12 @@
 </head>
 <body>
   <h1>꿈나래반 모의카페 주문</h1>
+  <audio id="orderSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3a7b8c6c81.mp3?filename=correct-2-46134.mp3"></audio>
   <div id="app"></div>
 
   <script>
     const app = document.getElementById("app");
+    const orderSound = document.getElementById("orderSound");
     let step = 0;
     let menu = "", temp = "";
 
@@ -71,6 +73,7 @@
         const koreanTemp = temp === 'HOT' ? '따뜻한' : '차가운';
         const englishTemp = temp === 'HOT' ? 'HOT' : 'ICE';
         const [korMenu, engMenu] = menu.split(" / ");
+        orderSound.play();
         app.innerHTML += `<div class="card">
           <p>1. ${koreanTemp} ${korMenu} 주문받았습니다.<br/>${englishTemp} ${engMenu} order received.</p>
           <p>2. 앞에 있는 친구와 하이파이브 해주세요!<br/>Please high-five the friend in front of you!</p>
